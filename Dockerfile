@@ -1,15 +1,12 @@
-FROM ubuntu:16.04
+FROM ubuntu:22.04
 
 ARG DEBIAN_FRONTEND=noninteractive
 
-RUN apt-get update
-RUN rm /bin/sh && ln -s /bin/bash /bin/sh
-RUN apt-get -qq -y install curl wget unzip zip
-RUN curl -s "https://get.sdkman.io" | bash
-RUN source "$HOME/.sdkman/bin/sdkman-init.sh"
+RUN apt-get update -y && apt-get install unzip
 
-RUN sdk install kotlin -y
-RUN sdk install kscript -y
+COPY kscript-4.0.3-bin.zip kotlin.zip
+RUN unzip kscript.zip
+RUN mv kscript /opt/bin
 COPY Hello.kts .
 RUN kotlinc -script Hello.kts
 #RUN apt update -y
