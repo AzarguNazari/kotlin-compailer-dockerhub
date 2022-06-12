@@ -6,6 +6,6 @@ RUN apt-get update && apt-get -y upgrade && \
     apt-get install -y snap snapd
 
 
-RUN snap install --classic kotlin && \
-    rm -rf /var/lib/apt/lists/*
+RUN snap install --classic kotlin
+RUN rm -rf /var/lib/apt/lists/*
 
