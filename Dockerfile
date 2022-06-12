@@ -3,7 +3,7 @@ FROM ubuntu:22.04
 ARG DEBIAN_FRONTEND=noninteractive
 
 RUN curl -s "https://get.sdkman.io" | bash
-RUN source ~/.bash_profile
+RUN source "$HOME/.sdkman/bin/sdkman-init.sh"
 RUN sdk install kotlin
 RUN sdk install kscript
 COPY Hello.kts .
