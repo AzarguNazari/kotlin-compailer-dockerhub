@@ -2,10 +2,10 @@ FROM ubuntu:22.04
 
 ARG DEBIAN_FRONTEND=noninteractive
 
-RUN apt-get update && apt-get -y upgrade && \
-    apt-get install -y snap snapd
+RUN apt update
+RUN apt install snapd
 
-
+RUN snap --version
 RUN snap install --classic kotlin
 RUN rm -rf /var/lib/apt/lists/*
 
