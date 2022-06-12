@@ -7,8 +7,8 @@ RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 RUN apt-get -qq -y install curl wget unzip zip
 RUN curl -s "https://get.sdkman.io" | bash
 RUN source "$HOME/.sdkman/bin/sdkman-init.sh"
-RUN sdk install kotlin
-RUN sdk install kscript
+RUN sdk install kotlin -y
+RUN sdk install kscript -y
 COPY Hello.kts .
 RUN kotlinc -script Hello.kts
 #RUN apt update -y
